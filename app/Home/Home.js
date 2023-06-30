@@ -1,5 +1,6 @@
+"use client"
 import React from 'react'
-
+import { Reveal } from '../utils/Reveal'
 
 function Home() {
     return (
@@ -9,12 +10,16 @@ function Home() {
                 <div className="hero-overlay bg-opacity-60" />
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
+                        <Reveal>
                         <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                        </Reveal>
+                        <Reveal>
                         <p className="mb-5">
                             Welcome to our pizza restaurant! Discover a world of flavorful pizza creations crafted with care and passion. 
                             From traditional Margherita to bold and inventive combinations, our menu offers a delightful range of options to satisfy your cravings.
                              Join us today and let our pizzas transport you to a place of pure culinary bliss.
                         </p>
+                        </Reveal>
                         <button className="btn btn-primary">Order now</button>
                     </div>
                 </div>
