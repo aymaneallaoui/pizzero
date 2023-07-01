@@ -38,7 +38,7 @@ const PizzaMenu = () => {
     const renderPizzaMenu = () => {
         return pizzaMenu.map((pizza, index) => (
             
-            <div className="card  bg-base-100 shadow-xl mx-4 my-4" key={index}>
+            <div className="card  bg-base-100 shadow-xl mx-4 my-4" key={index} >
                 <figure className="h-48">
                     
           <img src={pizza.imageSrc} alt={pizza.name} className="h-full w-full object-cover" />
@@ -67,8 +67,8 @@ const PizzaMenu = () => {
     };
 
     return (
-        <div className="container mx-auto bg-[#111111] py-6">
-      <h1 className="text-3xl font-bold mt-6 mb-6 text-center">Pizza Menu</h1>
+        <div className="container mx-auto  py-6" >
+      <h1 className="text-3xl font-bold mt-6 mb-6 text-center text-neutral-content" id= "Menu">Pizza Menu</h1>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {renderPizzaMenu()}
       </div>
