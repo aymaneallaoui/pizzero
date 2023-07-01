@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      <Home id="Home" />
+      <Home />
       <Menu />
       <AboutUs />
       <Footer />
