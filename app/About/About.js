@@ -4,7 +4,7 @@ import { Reveal } from '../utils/Reveal';
 
 const AboutUs = () => {
   return (
-    <div className="p-10 flex flex-col md:flex-row" id='AboutUs-section'>
+    <div className="p-10 flex flex-col md:flex-row bg-base-100" id='AboutUs-section'>
       <div className="flex-none w-full md:w-1/3">
         <img
           className="mb-5 rounded-lg max-w-full h-auto"

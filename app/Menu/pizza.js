@@ -37,42 +37,43 @@ const PizzaMenu = () => {
 
     const renderPizzaMenu = () => {
         return pizzaMenu.map((pizza, index) => (
-            
-            <div className="card  bg-base-100 shadow-xl mx-4 my-4" key={index} >
+
+            <div className="card  bg-base-200 shadow-xl mx-4 my-4" key={index} >
                 <figure className="h-48">
-                    
-          <img src={pizza.imageSrc} alt={pizza.name} className="h-full w-full object-cover" />
-            
-        </figure>
-                <div className="card-body">
+
+                    <img src={pizza.imageSrc} alt={pizza.name} className="h-full w-full object-cover" />
+
+                </figure>
+                <div className="card-body ">
+
                     <Reveal>
-                    <h2 className="card-title">
-                        {pizza.name}
-                    </h2>
+                        <h2 className="card-title text-neutral-content ">
+                            {pizza.name}
+                        </h2>
                     </Reveal>
                     <Reveal>
-                    <p>{pizza.description}</p>
+                        <p className='text-neutral-content'>{pizza.description}</p>
                     </Reveal>
                     <Reveal>
-                    <div className="card-actions justify-end">
-                        {pizza.ingredients.map((ingredient, i) => (
-                            <div className="badge badge-outline" key={i}>{ingredient}</div>
-                        ))}
-                    </div>
+                        <div className="card-actions justify-end">
+                            {pizza.ingredients.map((ingredient, i) => (
+                                <div className="badge badge-outline text-neutral-content" key={i}>{ingredient}</div>
+                            ))}
+                        </div>
                     </Reveal>
                 </div>
             </div>
-            
+
         ));
     };
 
     return (
-        <div className="container mx-auto  py-6" >
-      <h1 className="text-3xl font-bold mt-6 mb-6 text-center text-neutral-content" id= "Menu">Pizza Menu</h1>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {renderPizzaMenu()}
-      </div>
-    </div>
+        <div className="container mx-auto  py-6 bg-base-100" >
+            <h1 className="text-3xl font-bold mt-6 mb-6 text-center text-neutral-content" id="Menu">Pizza Menu</h1>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ">
+                {renderPizzaMenu()}
+            </div>
+        </div>
     );
 };
 
