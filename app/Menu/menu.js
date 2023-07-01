@@ -1,7 +1,7 @@
 import React from 'react'
 import PizzaMenu from './pizza'
 
-function Menu() {
+function PizzaMe() {
   return (
     <div id="menu-section">
 
@@ -10,4 +10,4 @@ function Menu() {
   )
 }
 
-export default Menu
+export default PizzaMe
