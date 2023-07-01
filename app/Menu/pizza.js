@@ -38,7 +38,7 @@ const PizzaMenu = () => {
     const renderPizzaMenu = () => {
         return pizzaMenu.map((pizza, index) => (
 
-            <div className="card  bg-base-200 shadow-xl mx-4 my-4" key={index} >
+            <div className="card  bg-base-200 shadow-xl mx-4 my-4 [&::selection]:bg-neutral-focus" key={index} >
                 <figure className="h-48">
 
                     <img src={pizza.imageSrc} alt={pizza.name} className="h-full w-full object-cover" />
@@ -47,17 +47,17 @@ const PizzaMenu = () => {
                 <div className="card-body ">
 
                     <Reveal>
-                        <h2 className="card-title text-neutral-content ">
+                        <h2 className="card-title text-neutral-content [&::selection]:bg-neutral-focus">
                             {pizza.name}
                         </h2>
                     </Reveal>
                     <Reveal>
-                        <p className='text-neutral-content'>{pizza.description}</p>
+                        <p className='text-neutral-content [&::selection]:bg-neutral-focus'>{pizza.description}</p>
                     </Reveal>
                     <Reveal>
                         <div className="card-actions justify-end">
                             {pizza.ingredients.map((ingredient, i) => (
-                                <div className="badge badge-outline text-neutral-content" key={i}>{ingredient}</div>
+                                <div className="badge badge-outline text-neutral-content [&::selection]:bg-neutral-focus" key={i}>{ingredient}</div>
                             ))}
                         </div>
                     </Reveal>

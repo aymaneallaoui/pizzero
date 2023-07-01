@@ -11,16 +11,16 @@ function Home() {
                 <div className="hero-content  text-neutral-content" >
                     <div className="max-w-md">
                         <Reveal>
-                        <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                        <h1 className="mb-5 text-5xl font-bold [&::selection]:bg-neutral-focus">Hello there</h1>
                         </Reveal>
                         <Reveal>
-                        <p className="mb-5">
+                        <p className="mb-5 [&::selection]:bg-neutral-focus">
                             Welcome to our pizza restaurant! Discover a world of flavorful pizza creations crafted with care and passion. 
                             From traditional Margherita to bold and inventive combinations, our menu offers a delightful range of options to satisfy your cravings.
                              Join us today and let our pizzas transport you to a place of pure culinary bliss.
                         </p>
                         </Reveal>
-                        <button className="btn btn-primary">Order now</button>
+                        <button className="btn btn-primary [&::selection]:bg-neutral-focus">Order now</button>
                     </div>
                 </div>
             </div>
