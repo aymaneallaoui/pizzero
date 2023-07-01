@@ -14,7 +14,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require('tailwind-scrollbar-daisyui'),
+    require("daisyui")],
    daisyui: {
     themes: ["luxury" ], // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
     darkTheme: "luxury", // name of one of the included themes for dark mode

@@ -4,7 +4,7 @@ import { Reveal } from '../utils/Reveal'
 
 function Home() {
     return (
-        <div id="home-section">
+        <div id="home-section" >
             <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80)' }}>
                 {/* <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" className="max-w-sm rounded-lg shadow-2xl" /> */}
                 <div className="hero-overlay bg-base-100 bg-opacity-60" />
