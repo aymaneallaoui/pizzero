@@ -10,19 +10,31 @@
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
+    "aws4": "^1.12.0",
+    "axios": "^1.4.0",
+    "daisyui": "3.1.7",
+    "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
     "framer-motion": "10.12.16",
+    "kerberos": "^2.0.1",
+    "mongodb": "^5.7.0",
+    "mongodb-client-encryption": "^2.8.0",
+    "mongoose": "^7.3.2",
     "next": "13.4.7",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-intersection-observer": "9.5.2",
     "react-scroll": "1.8.9",
-    "tailwindcss": "3.3.2",
-    "daisyui": "3.1.7",
-    "tailwind-scrollbar-daisyui": "1.0.3"
+    "snappy": "^7.2.2",
+    "supports-color": "^9.4.0",
+    "swr": "^2.2.0",
+    "tailwind-scrollbar-daisyui": "1.0.3",
+    "tailwindcss": "3.3.2"
   },
   "devDependencies": {
-       "autoprefixer": "10.4.14",
+    "autoprefixer": "10.4.14",
+    "daisyui": "3.1.7",
     "framer-motion": "10.12.16",
     "next": "13.4.7",
     "postcss": "8.4.24",
@@ -30,8 +42,7 @@
     "react-dom": "18.2.0",
     "react-intersection-observer": "9.5.2",
     "react-scroll": "1.8.9",
-    "tailwindcss": "3.3.2",
-    "daisyui": "3.1.7",
-    "tailwind-scrollbar-daisyui": "1.0.3"
+    "tailwind-scrollbar-daisyui": "1.0.3",
+    "tailwindcss": "3.3.2"
   }
 }

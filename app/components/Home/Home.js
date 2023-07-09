@@ -2,6 +2,8 @@
 import React from 'react'
 import { Reveal } from '../utils/Reveal'
 import pizza from './pizza.png'
+import Link from 'next/link';
+
 
 function Home() {
     return (
@@ -22,7 +24,10 @@ function Home() {
                              Join us today and let our pizzas transport you to a place of pure culinary bliss.
                         </p>
                         </Reveal>
-                        <button className="btn btn-primary [&::selection]:bg-neutral-focus">Order now</button>
+                        <Link href="/order">
+  <button className="btn btn-primary [&::selection]:bg-neutral-focus">Order now</button>
+</Link>
+
                     </div>
                 </div>
             </div>
