@@ -1,36 +1,29 @@
+import { NextResponse, NextRequest } from "next/server";
+import { PrismaClient } from "@prisma/client";
 
-import connectDB from '../../utils/db';
-import Order from '../../utils/models/pizza_orders';
-import { NextResponse } from 'next/server';
+const prisma = new PrismaClient();
 
-connectDB(); 
+export async function POST(request) {
+  try {
+    const { name, email, phone, pizza } = await request.json();
 
-
-export async function POST(req, res) {
-  if (req.method === 'POST' || req.method === 'GET') {
-    const data_string = JSON.stringify(req.body);
-    
-    const { name, email, phone, pizza } = JSON.parse(data_string);
-
-    console.log('Request payload:', JSON.parse(data_string)); 
-
-    try {
-      const order = new Order({
+    // Save the form submission to the database
+    const submission = await prisma.Order.create({
+      data: {
         name,
         email,
         phone,
         pizza,
-      });
+      },
+    });
 
-      await order.save();
+    console.log("New submission saved to database:", submission);
 
-      return NextResponse.json({ message: 'Order submitted successfully' });
-    } catch (error) {
-      console.error('Error saving order:', error); 
-
-      return NextResponse.json({ message: 'Failed to submit order' });
-    }
-  } else {
-    return NextResponse.json({ message: 'Method Not Allowed' });
+    return new NextResponse(JSON.stringify({ submission }), {
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    console.error("Error submitting contact form:", error);
+    return new NextResponse(null, { status: 500 });
   }
 }

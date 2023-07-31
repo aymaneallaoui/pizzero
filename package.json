@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^5.0.0",
     "autoprefixer": "10.4.14",
     "aws4": "^1.12.0",
     "axios": "^1.4.0",
@@ -20,6 +21,7 @@
     "mongodb": "^5.7.0",
     "mongodb-client-encryption": "^2.8.0",
     "mongoose": "^7.3.2",
+    "mysql2": "^3.5.2",
     "next": "13.4.7",
     "postcss": "8.4.24",
     "react": "18.2.0",
@@ -33,16 +35,20 @@
     "tailwindcss": "3.3.2"
   },
   "devDependencies": {
+    "@types/node": "^20.4.5",
     "autoprefixer": "10.4.14",
     "daisyui": "3.1.7",
     "framer-motion": "10.12.16",
     "next": "13.4.7",
     "postcss": "8.4.24",
+    "prisma": "^5.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-intersection-observer": "9.5.2",
     "react-scroll": "1.8.9",
     "tailwind-scrollbar-daisyui": "1.0.3",
-    "tailwindcss": "3.3.2"
+    "tailwindcss": "3.3.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
   }
 }
