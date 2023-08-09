@@ -1,12 +1,42 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function OrderForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
   const [pizza, setPizza] = useState("");
+  const [topping, setTopping] = useState("");
   const [message, setMessage] = useState("");
+  const [pizzas, setPizzas] = useState([]);
+  const [toppings, setToppings] = useState([]);
+
+  useEffect(() => {
+    const fetchToppings = async () => {
+      try {
+        const response = await fetch("/api/getToppings");
+        const data = await response.json();
+        setToppings(data);
+      } catch (error) {
+        console.error("Error fetching toppings:", error);
+      }
+    };
+    fetchToppings();
+  }, []);
+
+  useEffect(() => {
+    const fetchPizzas = async () => {
+      try {
+        const response = await fetch("/api/getPizzas");
+        const data = await response.json();
+        setPizzas(data);
+      } catch (error) {
+        console.error("Error fetching pizzas:", error);
+      }
+    };
+    fetchPizzas();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +45,9 @@ function OrderForm() {
       name,
       email,
       phone,
+      address,
       pizza,
+      topping, // add selected topping to order object
     };
 
     try {
@@ -32,6 +64,8 @@ function OrderForm() {
         setEmail("");
         setPhone("");
         setPizza("");
+        setTopping(""); // reset selected topping
+        setAddress("");
         setMessage("Your order has been placed successfully!");
       } else {
         const errorMessage = await response.text();
@@ -41,6 +75,7 @@ function OrderForm() {
       setMessage("An error occurred while submitting the order.");
     }
   };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">
@@ -60,6 +95,7 @@ function OrderForm() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -72,6 +108,7 @@ function OrderForm() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -84,20 +121,62 @@ function OrderForm() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="input input-bordered"
+                  required
+                />
+                <label className="label">
+                  <span className="label-text">address</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Pizza</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="Pizza"
+                <select
                   value={pizza}
                   onChange={(e) => setPizza(e.target.value)}
-                  className="input input-bordered"
-                />
+                  className="select select-bordered"
+                  required
+                >
+                  <option value="" disabled>
+                    Select a pizza
+                  </option>
+                  {pizzas.map((pizza) => (
+                    <option key={pizza.id} value={pizza.id}>
+                      {pizza.name}
+                    </option>
+                  ))}
+                </select>
               </div>
+              {toppings.length > 0 && (
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Topping</span>
+                  </label>
+                  <select
+                    value={topping}
+                    onChange={(e) => setTopping(e.target.value)} // use setTopping instead of setToppings
+                    className="select select-bordered"
+                    required
+                  >
+                    <option value="" disabled>
+                      Select a Topping
+                    </option>
+                    {toppings.map((topping) => (
+                      <option key={topping.id} value={topping.id}>
+                        {topping.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
               <div className="form-control mt-6">
                 <button type="submit" className="btn btn-primary">
                   Place Order

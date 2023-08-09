@@ -3,17 +3,69 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
+model User {
+  id      Int     @id @default(autoincrement())
+  email   String  @unique
+  name    String
+  phone   String?
+  address String?
+  orders  Order[]
+}
+
+model Pizza {
+  id       Int            @id @default(autoincrement())
+  name     String
+  price    Float
+  toppings PizzaTopping[]
+  orders   Order[]
+}
 
 model Order {
-  id      Int     @id @default(autoincrement())
-  name    String
-  email   String
-  phone   String
-  pizza   String
-  createdAt DateTime @default(now())
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  totalAmount Float
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+  pizzas      Pizza[]
+
+  @@index([userId])
+}
+
+model Topping {
+  id     Int            @id @default(autoincrement())
+  name   String
+  price  Float
+  pizzas PizzaTopping[]
+}
+
+model PizzaTopping {
+  id        Int     @id @default(autoincrement())
+  pizzaId   Int
+  toppingId Int
+  pizza     Pizza   @relation(fields: [pizzaId], references: [id])
+  topping   Topping @relation(fields: [toppingId], references: [id])
+
+  @@unique([pizzaId, toppingId])
+}
+
+model PizzaroAdmin {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  name     String
+  position String
+  password String
+}
+
+model OrderToPizza {
+  A Int
+  B Int
+
+  @@unique([A, B], map: "_OrderToPizza_AB_unique")
+  @@index([B], map: "_OrderToPizza_B_index")
+  @@map("_OrderToPizza")
 }
